@@ -1,5 +1,4 @@
 import axios from "axios";
-import { apiResponse } from "../models/apiResponse";
 import { API } from "../models/API";
 
 
@@ -12,6 +11,11 @@ export const APIRequest = {
 }
 
 
-export const Account = {
-    
+export const AccountRequest = {
+    login: async(username: string, password: string, apiid: string): Promise<{response: {token: string, redirectTo: string}, error: string}> => {
+        const url = `${import.meta.env.VITE_BACKEND_URL}/account/login?api=${apiid}`;
+        const body = {name: username, password: password};
+        const response = await axios.post(url, body);
+        return response.data;
+    },
 }

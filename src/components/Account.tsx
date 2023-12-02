@@ -4,7 +4,7 @@
 export default function Login() {
 
     return <>
-        Login Page pogu
+        Account Page pogu
     </>
 
 };
