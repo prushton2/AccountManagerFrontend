@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { APIRequest, AccountRequest } from "../lib/ajax";
+import { useState } from "react";
+import { AccountRequest } from "../lib/ajax";
 import "./Login.css";
 import { AxiosError } from "axios";
 
@@ -25,9 +25,9 @@ const SignUp = () => {
             return;
         }
 
-        let response;
+        
         try {
-            response = await AccountRequest.singup(username, email, password);
+            await AccountRequest.singup(username, email, password);
         } catch (e) {
             let err = e as AxiosError;
             alert(((err.response?.data) as any).error);
