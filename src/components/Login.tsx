@@ -16,8 +16,8 @@ async function getAPI(apiid: string) {
 
 const Login = () => {
     
-    const [username, setUsername] = useState("prushton");
-    const [password, setPassword] = useState("<insert sha here>");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
     
     const [apiName, setApiName] = useState("");
     const [apiid, setApiid] = useState("");
