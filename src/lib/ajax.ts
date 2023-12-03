@@ -18,4 +18,10 @@ export const AccountRequest = {
         const response = await axios.post(url, body);
         return response.data;
     },
+    singup: async(username: string, password: string, email: string): Promise<{response: string, error: string}> => {
+        const url = `${import.meta.env.VITE_BACKEND_URL}/account/new`;
+        const body = {name: username, email: email, password: password};
+        const response = await axios.post(url, body);
+        return response.data;
+    },
 }

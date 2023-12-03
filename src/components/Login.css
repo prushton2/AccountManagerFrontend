@@ -31,3 +31,12 @@ input {
     width: 250px;
     height: 50px;
 }
+
+.smallText {
+    font-size: medium;
+}
+
+.bottomText {
+    font-size: medium;
+    min-height: 60%;
+}

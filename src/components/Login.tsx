@@ -2,9 +2,6 @@ import { useEffect, useState } from "react";
 import { APIRequest, AccountRequest } from "../lib/ajax";
 import "./Login.css";
 import { AxiosError } from "axios";
-// import { apiResponse } from "../models/apiResponse";
-// import { AxiosError } from "axios";
-
 
 
 async function getAPI(apiid: string) {
@@ -21,10 +18,6 @@ const Login = () => {
     
     const [apiName, setApiName] = useState("");
     const [apiid, setApiid] = useState("");
-    
-    // useEffect(() => {
-        //     // setApiName(getAPI(useParams));
-        // }, []);
         
     async function loginUser() {
         let response;
@@ -59,8 +52,12 @@ const Login = () => {
             <input placeholder="Username" onChange={(e) => setUsername(e.target.value)}/> <br />
             <input placeholder="Password" onChange={(e) => setPassword(e.target.value)} type="password" />
 
-
             <button className="loginButton" onClick={() => {loginUser()}}>Log in</button>
+
+
+            <br />
+            <br />
+            <div className="bottomText"><a href="/SignUp">Sign Up</a></div>
         </div>
     </div>;
 }

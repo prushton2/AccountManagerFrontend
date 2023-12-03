@@ -9,8 +9,11 @@ const StoreCookie = () => {
         cookies
         const queryParams = new URLSearchParams(window.location.search);
         const token = queryParams.get("token");
-        setCookie("token", token, {expires: new Date(Date.now() + 604800000), httpOnly: true});
-    }, [])
+        setCookie("token", token, {expires: new Date(Date.now() + 604800000)});
+        setTimeout(() => {
+            window.location.href = "/";
+        }, 2000);
+    }, []);
 
     return <div className="logincontainer">
         
