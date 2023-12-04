@@ -24,7 +24,7 @@ export const AccountRequest = {
         const response = await axios.post(url, body);
         return response.data;
     },
-    info: async(token: string, apiid: string): Promise<{response: {_id: string, name: string, email: string, createdAt: number}, error: string}> => {
+    info: async(token: string, apiid: string): Promise<{response: {_id: string, name: string, email: string, createdAt: number, ownedAPIs: string[], allowedAPIs: string[]}, error: string}> => {
         const url = `${import.meta.env.VITE_BACKEND_URL}/account/info?api=${apiid}`;
         const body = {token: token};
         const response = await axios.post(url, body);
