@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { FilteredAccount } from "../models/FilteredAcount"
 import { APIRequest, AccountRequest } from "../lib/ajax";
 import { useCookies } from "react-cookie";
-
+import "./Account.css"
 
 export default function AccountPage() {
 
@@ -39,10 +39,19 @@ export default function AccountPage() {
                 apiResponse = await APIRequest.getAPI(apiid);
             } catch (e) {}
             
-            ownedAPIsHTML_ns.push(<div key={i}>
-                {apiResponse?.response._id.toString()} <br />
-                {apiResponse?.response.name} <br />
-                {apiResponse?.response.returnAddress} <br />
+            ownedAPIsHTML_ns.push(
+            
+            <div className="sidebyside" key={i}>
+                <div style={{marginRight: "10px", width: "min-content"}}> 
+                    Name: <br />
+                    ID: <br />
+                    Return Address: <br />
+                </div>
+                <div > 
+                    {apiResponse?.response.name} <br />
+                    {apiResponse?.response._id.toString()} <br />
+                    {apiResponse?.response.returnAddress} <br />
+                </div>
             </div>)
         }
         setOwnedAPIsHTML(ownedAPIsHTML_ns);
@@ -53,19 +62,35 @@ export default function AccountPage() {
         init();
     }, [])
 
-    return <>
-        <div>
-            <b>Account</b><br /><br />
-            {account?._id.toString()}<br/>
-            {account?.name}<br/>
-            {account?.email}<br/>
-            {account?.createdAt}<br/>
+    return (
+    <div className="container">
+        <div className="loginWindow">
+            <div className="title">Account</div> <br />
+            
+            <div className="sidebyside">
+                <div style={{margin: "10px"}}> 
+                    Name:<br />
+                    ID:<br />
+                    Email:<br />
+                    Created At: 
+                </div>
+
+                <div style={{margin: "10px"}}> 
+                    {account?.name}<br/>
+                    {account?._id.toString()}<br/>
+                    {account?.email}<br/>
+                    {account?.createdAt}<br/>
+                </div>
+            </div>
+
+
+
+
         </div>
         <br />
-        <div>
-            <b>Owned APIs</b> <br />
+        <div className="loginWindow">
+            <div className="title">Owned APIs</div> <br />
             {ownedAPIsHTML}
         </div>
-    </>
-
+    </div>);
 };
