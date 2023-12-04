@@ -64,7 +64,7 @@ export default function AccountPage() {
 
     return (
     <div className="container">
-        <div className="loginWindow">
+        <div className="infobox">
             <div className="title">Account</div> <br />
             
             <div className="sidebyside">
@@ -88,7 +88,7 @@ export default function AccountPage() {
 
         </div>
         <br />
-        <div className="loginWindow">
+        <div className="infobox">
             <div className="title">Owned APIs</div> <br />
             {ownedAPIsHTML}
         </div>
