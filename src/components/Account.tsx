@@ -3,6 +3,27 @@ import { FilteredAccount } from "../models/FilteredAcount"
 import { APIRequest, AccountRequest } from "../lib/ajax";
 import { useCookies } from "react-cookie";
 import "./Account.css"
+import { AxiosError } from "axios";
+import { API } from "../models/API";
+
+async function generateAPIKey(apiid: string): Promise<string | null> {
+
+    if(!confirm("When you generate an API Key, you will only be able to view it once for security reasons. Continue?")) {
+        return null;
+    }
+    
+    let response;
+    try {
+        response = await APIRequest.generateAPIKey(apiid);
+    } catch (e) {
+        alert(((e as AxiosError).response as any).error);
+        return null;
+    }
+
+    alert(`Your API Key:\n${response.response}\nThis cannot be viewed again.`);
+    return null;
+}
+
 
 export default function AccountPage() {
 
@@ -33,14 +54,14 @@ export default function AccountPage() {
         
         for(let i: number = 0; i<response.response.ownedAPIs.length; i++ ) {
             let apiid = response.response.ownedAPIs[i];
-            let apiResponse;
+            let apiResponse: API = {} as API;
 
             try {
-                apiResponse = await APIRequest.getAPI(apiid);
+                apiResponse = (await APIRequest.getAPI(apiid)).response;
             } catch (e) {}
-            
+
             ownedAPIsHTML_ns.push(
-            
+            <>
             <div className="sidebyside" key={i}>
                 <div style={{marginRight: "10px", width: "min-content"}}> 
                     Name: <br />
@@ -48,11 +69,13 @@ export default function AccountPage() {
                     Return Address: <br />
                 </div>
                 <div > 
-                    {apiResponse?.response.name} <br />
-                    {apiResponse?.response._id.toString()} <br />
-                    {apiResponse?.response.returnAddress} <br />
-                </div>
-            </div>)
+                    {apiResponse.name} <br />
+                    {apiResponse._id.toString()} <br />
+                    {apiResponse.returnAddress} <br />
+                </div><br />
+            </div>
+            <button onClick={() => {generateAPIKey(apiResponse._id.toString())}}>Generate API Key</button>
+            </>)
         }
         setOwnedAPIsHTML(ownedAPIsHTML_ns);
     }

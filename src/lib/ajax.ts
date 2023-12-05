@@ -8,6 +8,12 @@ export const APIRequest = {
         const response = await axios.get(url);
         return response.data; 
     },
+    generateAPIKey: async(apiid: string): Promise<{response: string, error: string}> => {
+        const url = `${import.meta.env.VITE_BACKEND_URL}/api/createAPIKey`;
+        const body = {apiid: apiid};
+        const response = await axios.post(url, body, {withCredentials: true});
+        return response.data; 
+    },
 }
 
 
