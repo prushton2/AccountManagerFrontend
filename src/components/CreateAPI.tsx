@@ -9,7 +9,7 @@ export default function CreateAPI() {
     const [name, setName] = useState("");
     const [returnAddress, setReturnAddress] = useState("");
 
-    const create = async() => {``
+    const create = async() => {
         try {
             await APIRequest.createAPI(name, returnAddress);
         } catch (e) {
