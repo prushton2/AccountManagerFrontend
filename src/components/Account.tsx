@@ -99,6 +99,9 @@ export default function AccountPage() {
 
             <div className="title">Account</div> <br />
             
+            <button style={{float: "right"}} onClick={async () => {await AccountRequest.logout(); window.location.reload()}}>Logout</button>
+            <br />
+
             <div className="sidebyside">
                 <div style={{margin: "10px"}}> 
                     Name:<br />

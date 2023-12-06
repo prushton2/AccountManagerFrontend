@@ -41,5 +41,10 @@ export const AccountRequest = {
         const body = {token: token};
         const response = await axios.post(url, body);
         return response.data;
+    },
+    logout: async(): Promise<{response: string, error: string}> => {
+        const url = `${import.meta.env.VITE_BACKEND_URL}/account/logout?api=${import.meta.env.VITE_SERVICE_API_ID}`;
+        const response = await axios.get(url, {withCredentials: true});
+        return response.data;
     }
 }
