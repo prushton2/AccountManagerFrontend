@@ -5,6 +5,7 @@ import Login from "./components/Login.tsx"
 import Account from "./components/Account.tsx"
 import StoreCookie from './components/StoreCookie.tsx'
 import SignUp from './components/SignUp.tsx'
+import CreateAPI from './components/CreateAPI.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
   {path: "/login", element: <Login />},
   {path: "/StoreCookie", element: <StoreCookie />},
   {path: "/SignUp", element: <SignUp />},
+  {path: "/CreateAPI", element: <CreateAPI />},
 ])
 
 

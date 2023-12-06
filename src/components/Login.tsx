@@ -49,8 +49,8 @@ const Login = () => {
             {/* Login <br /> */}
 
             <>Logging in to <br/>{apiName}</> <br/><br/>
-            <input placeholder="Username" onChange={(e) => setUsername(e.target.value)}/> <br />
-            <input placeholder="Password" onChange={(e) => setPassword(e.target.value)} type="password" />
+            <input className="bigInput" placeholder="Username" onChange={(e) => setUsername(e.target.value)}/> <br />
+            <input className="bigInput" placeholder="Password" onChange={(e) => setPassword(e.target.value)} type="password" />
 
             <button className="loginButton" onClick={() => {loginUser()}}>Log in</button>
 

@@ -14,6 +14,12 @@ export const APIRequest = {
         const response = await axios.post(url, body, {withCredentials: true});
         return response.data; 
     },
+    createAPI: async(name: string, returnAddress: string): Promise<{response: string, error: string}> => {
+        const url = `${import.meta.env.VITE_BACKEND_URL}/api/new`;
+        const body = {name: name, returnAddress: returnAddress};
+        const response = await axios.post(url, body, {withCredentials: true});
+        return response.data; 
+    },
 }
 
 

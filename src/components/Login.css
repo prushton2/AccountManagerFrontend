@@ -21,7 +21,7 @@
     background-color: var(--color30);
 }
 
-input {
+.bigInput {
     background-color: var(--backgroundColorElement);
     height: 50px;
     width: 250px;

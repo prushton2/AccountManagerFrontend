@@ -37,10 +37,9 @@
     /* border: 1px solid red; */
 }
 
-input {
-    background-color: var(--backgroundColorElement);
-    height: 50px;
-    width: 250px;
+.rightAlign {
+    width: 100%;
+    /* border: 1px solid red; */
 }
 
 .smallText {

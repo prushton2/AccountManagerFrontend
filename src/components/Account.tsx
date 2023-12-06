@@ -88,7 +88,9 @@ export default function AccountPage() {
     return (
     <div className="container">
         <div className="infobox">
+
             <div className="title">Account</div> <br />
+            
             
             <div className="sidebyside">
                 <div style={{margin: "10px"}}> 
@@ -112,7 +114,9 @@ export default function AccountPage() {
         </div>
         <br />
         <div className="infobox">
-            <div className="title">Owned APIs</div> <br />
+            <div className="title">Owned APIs</div> 
+            <div className="rightAlign"><button style={{float: "right"}} onClick={() => {window.location.href = "/CreateAPI"}}>Create</button></div>
+            <br />
             {ownedAPIsHTML}
         </div>
     </div>);
