@@ -52,8 +52,8 @@ export default function AccountPage() {
         setAccount(response?.response as FilteredAccount);
 
         let ownedAPIsHTML_ns: JSX.Element[] = []; //the non-state version, so i can update the state once and not
-        let selectAPIDropdownHTML_ns: JSX.Element[] = []; //the non-state version, so i can update the state once and not
                 //spam react
+        let selectAPIDropdownHTML_ns: JSX.Element[] = []; //the non-state version, so i can update the state once and not
         
         for(let i: number = 0; i<response.response.ownedAPIs.length; i++ ) {
             let apiid = response.response.ownedAPIs[i];
@@ -99,7 +99,6 @@ export default function AccountPage() {
 
             <div className="title">Account</div> <br />
             
-            
             <div className="sidebyside">
                 <div style={{margin: "10px"}}> 
                     Name:<br />
@@ -115,9 +114,6 @@ export default function AccountPage() {
                     {account?.createdAt}<br/>
                 </div>
             </div>
-
-
-
 
         </div>
         <br />

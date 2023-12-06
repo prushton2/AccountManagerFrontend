@@ -121,7 +121,3 @@ select:active {
 select:hover {
   background-color: var(--backgroundColorElementLight);
 }
-
-option {
-
-}
