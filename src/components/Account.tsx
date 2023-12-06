@@ -30,6 +30,8 @@ export default function AccountPage() {
     const [account, setAccount] = useState<FilteredAccount>();
     const [cookies] = useCookies(["token"]);
     const [ownedAPIsHTML, setOwnedAPIsHTML] = useState<JSX.Element[]>([]);
+    const [selectedAPI, setSelectedAPI] = useState<number>(0);
+    const [selectAPIDropdown, setSelectAPIDropdown] = useState<JSX.Element[]>([]);
 
     const init = async() => {
         let response;
@@ -50,6 +52,7 @@ export default function AccountPage() {
         setAccount(response?.response as FilteredAccount);
 
         let ownedAPIsHTML_ns: JSX.Element[] = []; //the non-state version, so i can update the state once and not
+        let selectAPIDropdownHTML_ns: JSX.Element[] = []; //the non-state version, so i can update the state once and not
                 //spam react
         
         for(let i: number = 0; i<response.response.ownedAPIs.length; i++ ) {
@@ -68,7 +71,7 @@ export default function AccountPage() {
                     ID: <br />
                     Return Address: <br />
                 </div>
-                <div > 
+                <div >
                     {apiResponse.name} <br />
                     {apiResponse._id.toString()} <br />
                     {apiResponse.returnAddress} <br />
@@ -76,7 +79,12 @@ export default function AccountPage() {
             </div>
             <button onClick={() => {generateAPIKey(apiResponse._id.toString())}}>Generate API Key</button>
             </>)
+
+            selectAPIDropdownHTML_ns.push(
+                <option value={i}>{apiResponse.name}</option>
+            )
         }
+        setSelectAPIDropdown(selectAPIDropdownHTML_ns);
         setOwnedAPIsHTML(ownedAPIsHTML_ns);
     }
 
@@ -115,9 +123,14 @@ export default function AccountPage() {
         <br />
         <div className="infobox">
             <div className="title">Owned APIs</div> 
-            <div className="rightAlign"><button style={{float: "right"}} onClick={() => {window.location.href = "/CreateAPI"}}>Create</button></div>
+            <div className="rightAlign">
+                <button style={{float: "right"}} onClick={() => {window.location.href = "/CreateAPI"}}>Create</button>
+                <select style={{float: "right"}} onChange={(e) => {setSelectedAPI(e.target.value as unknown as number)}}>
+                    {selectAPIDropdown}
+                </select>
+            </div>
             <br />
-            {ownedAPIsHTML}
+            {ownedAPIsHTML[selectedAPI]}
         </div>
     </div>);
 };
