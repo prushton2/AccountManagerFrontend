@@ -9,10 +9,9 @@ export default function CreateAPI() {
     const [name, setName] = useState("");
     const [returnAddress, setReturnAddress] = useState("");
 
-    const create = async() => {
-        let response;
+    const create = async() => {``
         try {
-            response = await APIRequest.createAPI(name, returnAddress);
+            await APIRequest.createAPI(name, returnAddress);
         } catch (e) {
             alert(((e as AxiosError).response as any).error)
         }
