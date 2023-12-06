@@ -88,11 +88,9 @@ button {
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 0.75em;
-  /* font-weight: 500; */
-  /* font-family: inherit; */
   background-color: #1a1a1a;
   cursor: pointer;
-  /* transition: border-color 0.25s; */
+  margin: 1px;
 }
 
 button:hover {
@@ -103,9 +101,17 @@ button:active {
   background-color: var(--backgroundColorElementDark);
 }
 
+
+
 select {
-  border: 1px solid var(--borderColor);
-  background-color: var(--backgroundColorElement);
+
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 0.75em;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  margin: 1px;
 }
 
 select:active {

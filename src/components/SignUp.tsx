@@ -27,7 +27,7 @@ const SignUp = () => {
 
         
         try {
-            await AccountRequest.singup(username, email, password);
+            await AccountRequest.singup(username, password, email);
         } catch (e) {
             let err = e as AxiosError;
             alert(((err.response?.data) as any).error);
@@ -44,10 +44,10 @@ const SignUp = () => {
         
         <div className="loginWindow">
             <>Sign Up</><br/><br/>
-            <input placeholder="Username" onChange={(e) => setUsername(e.target.value)}/> <br />
-            <input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-            <input placeholder="Password" onChange={(e) => setPassword(e.target.value)} type="password" />
-            <input placeholder="Repeat Password" onChange={(e) => setPassword2(e.target.value)} type="password" />
+            <input className="bigInput" placeholder="Username" onChange={(e) => setUsername(e.target.value)}/> <br />
+            <input className="bigInput" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+            <input className="bigInput" placeholder="Password" onChange={(e) => setPassword(e.target.value)} type="password" />
+            <input className="bigInput" placeholder="Repeat Password" onChange={(e) => setPassword2(e.target.value)} type="password" />
 
 
             <button className="loginButton" onClick={() => {SignUp()}}>Sign Up</button>
