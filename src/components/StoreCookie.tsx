@@ -9,7 +9,7 @@ const StoreCookie = () => {
         cookies
         const queryParams = new URLSearchParams(window.location.search);
         const token = queryParams.get("token");
-        setCookie("token", token, {expires: new Date(Date.now() + 604800000)});
+        setCookie("token", token, {expires: new Date(Date.now() + 604800000), domain: import.meta.env.VITE_COOKIE_DOMAIN});
         setTimeout(() => {
             window.location.href = "/";
         }, 2000);

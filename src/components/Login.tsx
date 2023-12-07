@@ -46,7 +46,6 @@ const Login = () => {
     return <div className="logincontainer">
         
         <div className="loginWindow">
-            {/* Login <br /> */}
 
             <>Logging in to <br/>{apiName}</> <br/><br/>
             <input className="bigInput" placeholder="Username" onChange={(e) => setUsername(e.target.value)}/> <br />
